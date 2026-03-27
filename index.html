@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -227,161 +228,162 @@ textarea::placeholder,input::placeholder{color:var(--muted2);}
 
   <div class="scroll-area" id="scrollArea">
 
-    <!-- FIX 2: Removed markdown code fences (``` blocks) that were wrapping all sections -->
-    <section class="sec on" id="s-home">
-      <div class="hero-card">
-        <div class="hero-who" id="heroWho">Welcome back</div>
-        <div class="hero-name" id="heroName">Hey love ♡</div>
-        <div class="cd-row">
-          <div class="cd-box"><span class="cd-num" id="cdD">--</span><span class="cd-lbl">days</span></div>
-          <div class="cd-box"><span class="cd-num" id="cdH">--</span><span class="cd-lbl">hrs</span></div>
-          <div class="cd-box"><span class="cd-num" id="cdM">--</span><span class="cd-lbl">min</span></div>
-          <div class="cd-box"><span class="cd-num" id="cdS">--</span><span class="cd-lbl">sec</span></div>
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="info-card"><div class="ic-lbl">Together</div><div class="ic-val" id="homeDays">0</div><div class="ic-sub">days of us</div></div>
-        <div class="info-card"><div class="ic-lbl">Streak</div><div class="ic-val" id="homeStreak">0</div><div class="ic-sub">🔥 days running</div></div>
-      </div>
-      <div class="q-teaser" onclick="goTab('s-qotd','nt-qotd')">
-        <div class="qt-tag">✦ Today's question</div>
-        <div class="qt-q" id="homeQ">Loading...</div>
-        <div class="qt-cta">Tap to answer →</div>
-      </div>
-      <div class="mem-teaser"><div class="mt-lbl">Latest memory</div><div class="mt-val" id="homeMem">No memories yet — add your first moment ♡</div></div>
-    </section>
+```
+<section class="sec on" id="s-home">
+  <div class="hero-card">
+    <div class="hero-who" id="heroWho">Welcome back</div>
+    <div class="hero-name" id="heroName">Hey love ♡</div>
+    <div class="cd-row">
+      <div class="cd-box"><span class="cd-num" id="cdD">--</span><span class="cd-lbl">days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cdH">--</span><span class="cd-lbl">hrs</span></div>
+      <div class="cd-box"><span class="cd-num" id="cdM">--</span><span class="cd-lbl">min</span></div>
+      <div class="cd-box"><span class="cd-num" id="cdS">--</span><span class="cd-lbl">sec</span></div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="info-card"><div class="ic-lbl">Together</div><div class="ic-val" id="homeDays">0</div><div class="ic-sub">days of us</div></div>
+    <div class="info-card"><div class="ic-lbl">Streak</div><div class="ic-val" id="homeStreak">0</div><div class="ic-sub">🔥 days running</div></div>
+  </div>
+  <div class="q-teaser" onclick="goTab('s-qotd','nt-qotd')">
+    <div class="qt-tag">✦ Today's question</div>
+    <div class="qt-q" id="homeQ">Loading...</div>
+    <div class="qt-cta">Tap to answer →</div>
+  </div>
+  <div class="mem-teaser"><div class="mt-lbl">Latest memory</div><div class="mt-val" id="homeMem">No memories yet — add your first moment ♡</div></div>
+</section>
 
-    <section class="sec" id="s-mood">
-      <div class="sec-head"><div class="sec-h1">Check In</div><div class="sec-h2">Log your mood &amp; build your streak</div></div>
-      <div class="streak-hero">
-        <span class="streak-big" id="streakBig">0</span>
-        <span class="streak-fire">🔥</span>
-        <div class="streak-sub">consecutive days you've both checked in<br><span class="streak-status" id="streakMsg">Check in today to start your streak!</span></div>
-      </div>
-      <div class="checkin-box">
-        <div class="lbl">Today's check-in</div>
-        <div class="ci-row">
-          <button class="ci-btn" data-w="oyin" id="ci-oyin" onclick="doCheckin('oyin')">Oyindamola ○</button>
-          <button class="ci-btn" data-w="mofe" id="ci-mofe" onclick="doCheckin('mofe')">Mofeyisayomi ○</button>
-        </div>
-      </div>
-      <div class="lbl mb8">Who's logging this mood?</div>
-      <div class="who-row mb12">
-        <button class="who-tab on" data-w="oyin" onclick="setMoodWho(this)">Oyindamola</button>
-        <button class="who-tab" data-w="mofe" onclick="setMoodWho(this)">Mofeyisayomi</button>
-      </div>
-      <div class="mood-grid mb12">
-        <button class="mood-btn" data-emoji="😄" data-label="Joyful" onclick="pickMood(this)"><span class="m-em">😄</span><span class="m-lbl">Joyful</span></button>
-        <button class="mood-btn" data-emoji="🥰" data-label="In love" onclick="pickMood(this)"><span class="m-em">🥰</span><span class="m-lbl">In love</span></button>
-        <button class="mood-btn" data-emoji="😌" data-label="Peaceful" onclick="pickMood(this)"><span class="m-em">😌</span><span class="m-lbl">Peaceful</span></button>
-        <button class="mood-btn" data-emoji="🤩" data-label="Excited" onclick="pickMood(this)"><span class="m-em">🤩</span><span class="m-lbl">Excited</span></button>
-        <button class="mood-btn" data-emoji="😢" data-label="Missing you" onclick="pickMood(this)"><span class="m-em">😢</span><span class="m-lbl">Missing you</span></button>
-        <button class="mood-btn" data-emoji="🥺" data-label="Needy" onclick="pickMood(this)"><span class="m-em">🥺</span><span class="m-lbl">Needy</span></button>
-        <button class="mood-btn" data-emoji="😴" data-label="Tired" onclick="pickMood(this)"><span class="m-em">😴</span><span class="m-lbl">Tired</span></button>
-        <button class="mood-btn" data-emoji="😤" data-label="Stressed" onclick="pickMood(this)"><span class="m-em">😤</span><span class="m-lbl">Stressed</span></button>
-      </div>
-      <div class="mb12"><span class="lbl">Note (optional)</span><textarea id="moodNote" rows="2" placeholder="What's on your mind?"></textarea></div>
-      <button class="btn btn-fill" onclick="saveMood()">Log Mood</button>
-      <div class="feed-label">Mood history — both of you</div>
-      <div id="moodFeed"></div>
-    </section>
+<section class="sec" id="s-mood">
+  <div class="sec-head"><div class="sec-h1">Check In</div><div class="sec-h2">Log your mood &amp; build your streak</div></div>
+  <div class="streak-hero">
+    <span class="streak-big" id="streakBig">0</span>
+    <span class="streak-fire">🔥</span>
+    <div class="streak-sub">consecutive days you've both checked in<br><span class="streak-status" id="streakMsg">Check in today to start your streak!</span></div>
+  </div>
+  <div class="checkin-box">
+    <div class="lbl">Today's check-in</div>
+    <div class="ci-row">
+      <button class="ci-btn" data-w="oyin" id="ci-oyin" onclick="doCheckin('oyin')">Oyindamola ○</button>
+      <button class="ci-btn" data-w="mofe" id="ci-mofe" onclick="doCheckin('mofe')">Mofeyisayomi ○</button>
+    </div>
+  </div>
+  <div class="lbl mb8">Who's logging this mood?</div>
+  <div class="who-row mb12">
+    <button class="who-tab on" data-w="oyin" onclick="setMoodWho(this)">Oyindamola</button>
+    <button class="who-tab" data-w="mofe" onclick="setMoodWho(this)">Mofeyisayomi</button>
+  </div>
+  <div class="mood-grid mb12">
+    <button class="mood-btn" data-emoji="😄" data-label="Joyful" onclick="pickMood(this)"><span class="m-em">😄</span><span class="m-lbl">Joyful</span></button>
+    <button class="mood-btn" data-emoji="🥰" data-label="In love" onclick="pickMood(this)"><span class="m-em">🥰</span><span class="m-lbl">In love</span></button>
+    <button class="mood-btn" data-emoji="😌" data-label="Peaceful" onclick="pickMood(this)"><span class="m-em">😌</span><span class="m-lbl">Peaceful</span></button>
+    <button class="mood-btn" data-emoji="🤩" data-label="Excited" onclick="pickMood(this)"><span class="m-em">🤩</span><span class="m-lbl">Excited</span></button>
+    <button class="mood-btn" data-emoji="😢" data-label="Missing you" onclick="pickMood(this)"><span class="m-em">😢</span><span class="m-lbl">Missing you</span></button>
+    <button class="mood-btn" data-emoji="🥺" data-label="Needy" onclick="pickMood(this)"><span class="m-em">🥺</span><span class="m-lbl">Needy</span></button>
+    <button class="mood-btn" data-emoji="😴" data-label="Tired" onclick="pickMood(this)"><span class="m-em">😴</span><span class="m-lbl">Tired</span></button>
+    <button class="mood-btn" data-emoji="😤" data-label="Stressed" onclick="pickMood(this)"><span class="m-em">😤</span><span class="m-lbl">Stressed</span></button>
+  </div>
+  <div class="mb12"><span class="lbl">Note (optional)</span><textarea id="moodNote" rows="2" placeholder="What's on your mind?"></textarea></div>
+  <button class="btn btn-fill" onclick="saveMood()">Log Mood</button>
+  <div class="feed-label">Mood history — both of you</div>
+  <div id="moodFeed"></div>
+</section>
 
-    <section class="sec" id="s-letters">
-      <div class="sec-head"><div class="sec-h1">Love Letters</div><div class="sec-h2">Write something from the heart</div></div>
-      <div class="letter-compose">
-        <div class="letter-from">From <b id="letterFromName">—</b></div>
-        <div class="mb12"><textarea id="letterText" rows="5" placeholder="Write your letter here..."></textarea></div>
-        <button class="btn btn-fill" onclick="saveLetter()">Send Letter ♡</button>
-      </div>
-      <div class="feed-label">All letters</div>
-      <div id="letterFeed"></div>
-    </section>
+<section class="sec" id="s-letters">
+  <div class="sec-head"><div class="sec-h1">Love Letters</div><div class="sec-h2">Write something from the heart</div></div>
+  <div class="letter-compose">
+    <div class="letter-from">From <b id="letterFromName">—</b></div>
+    <div class="mb12"><textarea id="letterText" rows="5" placeholder="Write your letter here..."></textarea></div>
+    <button class="btn btn-fill" onclick="saveLetter()">Send Letter ♡</button>
+  </div>
+  <div class="feed-label">All letters</div>
+  <div id="letterFeed"></div>
+</section>
 
-    <section class="sec" id="s-qotd">
-      <div class="sec-head"><div class="sec-h1">Question of the Day</div><div class="sec-h2">One question, two answers</div></div>
-      <div class="q-card">
-        <div class="q-num" id="qNum">Question 1 of 20</div>
-        <div class="q-text" id="qText">Loading...</div>
-        <div class="q-answers">
-          <div><div class="q-who-lbl oyin">Oyindamola</div><div id="q-oyin" class="q-pending">hasn't answered yet</div></div>
-          <div><div class="q-who-lbl mofe">Mofeyisayomi</div><div id="q-mofe" class="q-pending">hasn't answered yet</div></div>
-        </div>
-      </div>
-      <div class="mb12"><span class="lbl" id="qAnswerLbl">Your answer</span><textarea id="qAnswer" rows="3" placeholder="Type your answer..."></textarea></div>
-      <button class="btn btn-fill mb12" onclick="saveQAnswer()">Submit Answer</button>
-      <button class="btn btn-line" onclick="nextQuestion()">Next Question →</button>
-    </section>
+<section class="sec" id="s-qotd">
+  <div class="sec-head"><div class="sec-h1">Question of the Day</div><div class="sec-h2">One question, two answers</div></div>
+  <div class="q-card">
+    <div class="q-num" id="qNum">Question 1 of 20</div>
+    <div class="q-text" id="qText">Loading...</div>
+    <div class="q-answers">
+      <div><div class="q-who-lbl oyin">Oyindamola</div><div id="q-oyin" class="q-pending">hasn't answered yet</div></div>
+      <div><div class="q-who-lbl mofe">Mofeyisayomi</div><div id="q-mofe" class="q-pending">hasn't answered yet</div></div>
+    </div>
+  </div>
+  <div class="mb12"><span class="lbl" id="qAnswerLbl">Your answer</span><textarea id="qAnswer" rows="3" placeholder="Type your answer..."></textarea></div>
+  <button class="btn btn-fill mb12" onclick="saveQAnswer()">Submit Answer</button>
+  <button class="btn btn-line" onclick="nextQuestion()">Next Question →</button>
+</section>
 
-    <section class="sec" id="s-bucket">
-      <div class="sec-head"><div class="sec-h1">Bucket List</div><div class="sec-h2">Things to do when distance is just a memory</div></div>
-      <div class="bucket-add-row">
-        <input type="text" id="bucketText" placeholder="e.g. Watch sunrise together..."/>
-        <button class="bucket-add-btn" onclick="saveBucket()">+</button>
-      </div>
-      <div id="bucketFeed"></div>
-    </section>
+<section class="sec" id="s-bucket">
+  <div class="sec-head"><div class="sec-h1">Bucket List</div><div class="sec-h2">Things to do when distance is just a memory</div></div>
+  <div class="bucket-add-row">
+    <input type="text" id="bucketText" placeholder="e.g. Watch sunrise together..."/>
+    <button class="bucket-add-btn" onclick="saveBucket()">+</button>
+  </div>
+  <div id="bucketFeed"></div>
+</section>
 
-    <section class="sec" id="s-games">
-      <div class="sec-head"><div class="sec-h1">Play Together</div><div class="sec-h2">Open on a call and play in real time</div></div>
-      <div class="game-tabs">
-        <button class="game-tab on" onclick="showGame('g-tot',this)">This or That</button>
-        <button class="game-tab" onclick="showGame('g-td',this)">Truth or Dare</button>
-        <button class="game-tab" onclick="showGame('g-wyr',this)">Would You Rather</button>
-        <button class="game-tab" onclick="showGame('g-quiz',this)">Couple Quiz</button>
+<section class="sec" id="s-games">
+  <div class="sec-head"><div class="sec-h1">Play Together</div><div class="sec-h2">Open on a call and play in real time</div></div>
+  <div class="game-tabs">
+    <button class="game-tab on" onclick="showGame('g-tot',this)">This or That</button>
+    <button class="game-tab" onclick="showGame('g-td',this)">Truth or Dare</button>
+    <button class="game-tab" onclick="showGame('g-wyr',this)">Would You Rather</button>
+    <button class="game-tab" onclick="showGame('g-quiz',this)">Couple Quiz</button>
+  </div>
+  <div class="game-panel on" id="g-tot">
+    <div class="game-card">
+      <div class="game-q" id="tot-q">Loading...</div>
+      <div class="game-2col">
+        <button class="game-opt" id="tot-a" onclick="pickTot(0)">–</button>
+        <button class="game-opt" id="tot-b" onclick="pickTot(1)">–</button>
       </div>
-      <div class="game-panel on" id="g-tot">
-        <div class="game-card">
-          <div class="game-q" id="tot-q">Loading...</div>
-          <div class="game-2col">
-            <button class="game-opt" id="tot-a" onclick="pickTot(0)">–</button>
-            <button class="game-opt" id="tot-b" onclick="pickTot(1)">–</button>
-          </div>
-          <div class="game-reveal" id="tot-rev">You chose! Now ask Mofe 💬</div>
-        </div>
-        <button class="btn btn-line" onclick="nextTot()">Next →</button>
+      <div class="game-reveal" id="tot-rev">You chose! Now ask Mofe 💬</div>
+    </div>
+    <button class="btn btn-line" onclick="nextTot()">Next →</button>
+  </div>
+  <div class="game-panel" id="g-td">
+    <div class="td-toggle">
+      <button class="td-btn on" onclick="setTdMode('truth',this)">Truth</button>
+      <button class="td-btn" onclick="setTdMode('dare',this)">Dare</button>
+    </div>
+    <div class="td-card"><div class="td-text" id="td-text">Tap below for a card ✨</div></div>
+    <button class="btn btn-fill mb12" onclick="drawCard()">Draw Card</button>
+    <button class="btn btn-line" onclick="drawCard()">Another →</button>
+  </div>
+  <div class="game-panel" id="g-wyr">
+    <div class="game-card" style="background:linear-gradient(160deg,#1a0e10,#2a1418)">
+      <div class="game-q" id="wyr-q">Loading...</div>
+      <div class="game-opts">
+        <button class="game-opt" id="wyr-a" onclick="pickWyr(0)">–</button>
+        <button class="game-opt" id="wyr-b" onclick="pickWyr(1)">–</button>
       </div>
-      <div class="game-panel" id="g-td">
-        <div class="td-toggle">
-          <button class="td-btn on" onclick="setTdMode('truth',this)">Truth</button>
-          <button class="td-btn" onclick="setTdMode('dare',this)">Dare</button>
-        </div>
-        <div class="td-card"><div class="td-text" id="td-text">Tap below for a card ✨</div></div>
-        <button class="btn btn-fill mb12" onclick="drawCard()">Draw Card</button>
-        <button class="btn btn-line" onclick="drawCard()">Another →</button>
-      </div>
-      <div class="game-panel" id="g-wyr">
-        <div class="game-card" style="background:linear-gradient(160deg,#1a0e10,#2a1418)">
-          <div class="game-q" id="wyr-q">Loading...</div>
-          <div class="game-opts">
-            <button class="game-opt" id="wyr-a" onclick="pickWyr(0)">–</button>
-            <button class="game-opt" id="wyr-b" onclick="pickWyr(1)">–</button>
-          </div>
-          <div class="game-reveal" id="wyr-rev">You picked! Now ask Mofe 💬</div>
-        </div>
-        <button class="btn btn-line" onclick="nextWyr()">Next →</button>
-      </div>
-      <div class="game-panel" id="g-quiz">
-        <div class="game-card" style="text-align:left;padding:20px 16px">
-          <div class="game-q" style="text-align:center;margin-bottom:16px" id="quiz-q">Loading...</div>
-          <div class="game-opts" id="quiz-opts"></div>
-          <div class="game-reveal" id="quiz-rev" style="text-align:center">Now ask your partner! 💬</div>
-        </div>
-        <button class="btn btn-line" onclick="nextQuiz()">Next →</button>
-      </div>
-    </section>
+      <div class="game-reveal" id="wyr-rev">You picked! Now ask Mofe 💬</div>
+    </div>
+    <button class="btn btn-line" onclick="nextWyr()">Next →</button>
+  </div>
+  <div class="game-panel" id="g-quiz">
+    <div class="game-card" style="text-align:left;padding:20px 16px">
+      <div class="game-q" style="text-align:center;margin-bottom:16px" id="quiz-q">Loading...</div>
+      <div class="game-opts" id="quiz-opts"></div>
+      <div class="game-reveal" id="quiz-rev" style="text-align:center">Now ask your partner! 💬</div>
+    </div>
+    <button class="btn btn-line" onclick="nextQuiz()">Next →</button>
+  </div>
+</section>
 
-    <section class="sec" id="s-memories">
-      <div class="sec-head"><div class="sec-h1">Memory Jar</div><div class="sec-h2">Every moment worth keeping</div></div>
-      <div class="mem-form">
-        <div><span class="lbl">Caption</span><input type="text" id="memCaption" placeholder="e.g. The night we stayed up till 3am..."/></div>
-        <div><span class="lbl">Date</span><input type="date" id="memDateVal"/></div>
-        <div><span class="lbl">Photo URL (optional)</span><input type="url" id="memUrl" placeholder="Paste an image link..."/></div>
-        <button class="btn btn-fill" onclick="saveMemory()">Add Memory ♡</button>
-      </div>
-      <div class="mem-grid" id="memGrid">
-        <div class="empty-state" style="grid-column:1/-1"><span class="empty-icon">📸</span><div class="empty-txt">Memory jar is empty.<br>Add your first moment.</div></div>
-      </div>
-    </section>
+<section class="sec" id="s-memories">
+  <div class="sec-head"><div class="sec-h1">Memory Jar</div><div class="sec-h2">Every moment worth keeping</div></div>
+  <div class="mem-form">
+    <div><span class="lbl">Caption</span><input type="text" id="memCaption" placeholder="e.g. The night we stayed up till 3am..."/></div>
+    <div><span class="lbl">Date</span><input type="date" id="memDateVal"/></div>
+    <div><span class="lbl">Photo URL (optional)</span><input type="url" id="memUrl" placeholder="Paste an image link..."/></div>
+    <button class="btn btn-fill" onclick="saveMemory()">Add Memory ♡</button>
+  </div>
+  <div class="mem-grid" id="memGrid">
+    <div class="empty-state" style="grid-column:1/-1"><span class="empty-icon">📸</span><div class="empty-txt">Memory jar is empty.<br>Add your first moment.</div></div>
+  </div>
+</section>
+```
 
   </div>
 
@@ -402,7 +404,7 @@ textarea::placeholder,input::placeholder{color:var(--muted2);}
 // ── SUPABASE ──
 const _sb = supabase.createClient(
   'https://gxdzzysxpoeluvouqogg.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4ZHp6eXN4cG9lbHV2b3VxZ2dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5MTcxNjUsImV4cCI6MjA2OTQ5MzE2NX0.CIy3PIPHJoX772RRRB_MeZ523pUF1HNIXEH01nzPyHQ'
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4ZHp6eXN4cG9lbHV2b3Vxb2dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5MTcxNjUsImV4cCI6MjA2OTQ5MzE2NX0.CIy3PIPHJoX772RRRB_MeZ523pUF1HNIXEH01nzPyHQ'
 );
 
 // ── STATE ──
@@ -413,14 +415,7 @@ const NAME={oyin:'Oyindamola',mofe:'Mofeyisayomi'};
 const SHORT={oyin:'Oyin',mofe:'Mofe'};
 
 function persist(){localStorage.setItem('_who',WHO||'');localStorage.setItem('_meet',MEET||'');localStorage.setItem('_start',START||'');localStorage.setItem('_qi',QI||0);}
-// FIX 4: Guard against NaN from parseInt on corrupted/missing localStorage value
-function restore(){
-  WHO=localStorage.getItem('_who')||null;
-  MEET=localStorage.getItem('_meet')||'';
-  START=localStorage.getItem('_start')||'';
-  const qi=parseInt(localStorage.getItem('_qi')||'0');
-  QI=isNaN(qi)?0:qi;
-}
+function restore(){WHO=localStorage.getItem('_who')||null;MEET=localStorage.getItem('_meet')||'';START=localStorage.getItem('_start')||'';QI=parseInt(localStorage.getItem('_qi')||'0');}
 
 function toast(msg,dur=3000){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),dur);}
 function sync(s){const d=document.getElementById('sdot');if(!d)return;d.className='sdot'+(s==='loading'?' loading':s==='err'?' err':'');}
@@ -444,6 +439,7 @@ async function boot(){
   document.getElementById('loading').style.display='flex';
   sync('loading');
   try{
+    // ensure streak row
     const{data:rows}=await _sb.from('oyin_mofe_streak').select('id').limit(1);
     if(!rows||rows.length===0){
       await _sb.from('oyin_mofe_streak').insert({oyin_checked:false,mofe_checked:false,streak_count:0,last_date:''});
@@ -502,16 +498,12 @@ async function loadStreak(){
   if(!data||!data.length)return;
   let row=data[0];
   const td=today();
-  // FIX 3: Only reset if last_date is non-empty AND is before yesterday.
-  // An empty last_date means brand new row — don't nuke the streak.
-  if(row.last_date && row.last_date!==td){
+  if(row.last_date&&row.last_date!==td){
     const yest=new Date();yest.setDate(yest.getDate()-1);const ys=yest.toISOString().slice(0,10);
     if(row.last_date<ys){
-      // Missed a day — reset streak fully
       await _sb.from('oyin_mofe_streak').update({oyin_checked:false,mofe_checked:false,streak_count:0,last_date:td}).eq('id',row.id);
       row={...row,oyin_checked:false,mofe_checked:false,streak_count:0};
     }else{
-      // It's a new day (yesterday was last check-in) — keep streak count, reset checks
       await _sb.from('oyin_mofe_streak').update({oyin_checked:false,mofe_checked:false}).eq('id',row.id);
       row={...row,oyin_checked:false,mofe_checked:false};
     }
