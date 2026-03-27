@@ -376,8 +376,15 @@ textarea::placeholder,input::placeholder{color:var(--muted2);}
   <div class="mem-form">
     <div><span class="lbl">Caption</span><input type="text" id="memCaption" placeholder="e.g. The night we stayed up till 3am..."/></div>
     <div><span class="lbl">Date</span><input type="date" id="memDateVal"/></div>
-    <div><span class="lbl">Photo URL (optional)</span><input type="url" id="memUrl" placeholder="Paste an image link..."/></div>
-    <button class="btn btn-fill" onclick="saveMemory()">Add Memory ♡</button>
+    <div>
+      <span class="lbl">Photo (optional)</span>
+      <input type="file" id="memFile" accept="image/*" style="display:none" onchange="previewMemImg(this)"/>
+      <div id="memImgPreview" style="display:none;margin-bottom:8px;border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:var(--card2);">
+        <img id="memImgThumb" style="width:100%;height:100%;object-fit:cover;display:block;" src="" alt="preview"/>
+      </div>
+      <button type="button" class="btn btn-line" onclick="document.getElementById('memFile').click()" style="margin-bottom:0">&#128247; Pick from Gallery</button>
+    </div>
+    <button class="btn btn-fill" onclick="saveMemory()">Add Memory &#9825;</button>
   </div>
   <div class="mem-grid" id="memGrid">
     <div class="empty-state" style="grid-column:1/-1"><span class="empty-icon">📸</span><div class="empty-txt">Memory jar is empty.<br>Add your first moment.</div></div>
@@ -643,15 +650,46 @@ async function loadBucket(){
 }
 
 // ── MEMORIES ──
+let memBase64 = null;
+
+function previewMemImg(input) {
+  const file = input.files[0];
+  if (!file) return;
+  // Resize image before storing to keep base64 small
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      const MAX = 800;
+      let w = img.width, h = img.height;
+      if (w > h) { if (w > MAX) { h = h * MAX / w; w = MAX; } }
+      else { if (h > MAX) { w = w * MAX / h; h = MAX; } }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      memBase64 = canvas.toDataURL('image/jpeg', 0.75);
+      document.getElementById('memImgThumb').src = memBase64;
+      document.getElementById('memImgPreview').style.display = 'block';
+      document.querySelector('#s-memories .btn-line').textContent = '✓ Photo selected';
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
 async function saveMemory(){
   const cap=document.getElementById('memCaption').value.trim();
   if(!cap)return toast('Add a caption first ♡');
   sync('loading');
   const date=document.getElementById('memDateVal').value||new Date().toLocaleDateString();
-  const url=document.getElementById('memUrl').value.trim();
-  const{error}=await _sb.from('oyin_mofe_memories').insert({caption:cap,date:date,url:url});
+  const{error}=await _sb.from('oyin_mofe_memories').insert({caption:cap,date:date,url:memBase64||''});
   if(error){sync('err');toast('Error saving — check connection');return;}
-  document.getElementById('memCaption').value='';document.getElementById('memDateVal').value='';document.getElementById('memUrl').value='';
+  document.getElementById('memCaption').value='';
+  document.getElementById('memDateVal').value='';
+  document.getElementById('memFile').value='';
+  document.getElementById('memImgPreview').style.display='none';
+  document.querySelector('#s-memories .btn-line').textContent='📷 Pick from Gallery';
+  memBase64=null;
   await loadMemories();sync('');toast('Memory saved to the jar ♡');
 }
 
