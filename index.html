@@ -117,18 +117,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);di
 }
 .nl{
   font-size:0.37rem;
-  letter-spacing:0.1em;
+  letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--rose2);
+  color:var(--muted);
   font-weight:500;
-  overflow:hidden;
-  max-height:0;
-  opacity:0;
-  transition:max-height 0.22s ease, opacity 0.2s ease, margin-top 0.2s ease;
+  margin-top:2px;
+  transition:color 0.2s;
 }
-.nt.on .nl{max-height:12px;opacity:1;margin-top:1px;}
+.nt.on .nl{color:var(--rose2);}
 .nt.on .ni{
-  transform:translateY(-2px) scale(1.12);
   filter:drop-shadow(0 0 8px var(--rose)) drop-shadow(0 0 3px rgba(232,160,176,0.6));
 }
 /* tiny dot under inactive icons */
